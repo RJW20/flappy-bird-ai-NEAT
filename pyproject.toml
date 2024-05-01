@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "flappy-bird-ai"
+version = "0.1.0"
+description = "An application of NEAT of the game Flappy Bird"
+authors = ["RJW20"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+neat = { path = "submodules/NEAT/", develop = true }
+flappy_bird_app = { path = "submodules/flappy_bird_app/", develop = true }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
