@@ -1,0 +1,6 @@
+[submodule "submodules/NEAT"]
+	path = submodules/NEAT
+	url = https://github.com/RJW20/NEAT.git
+[submodule "submodules/flappy_bird_app"]
+	path = submodules/flappy_bird_app
+	url = https://github.com/RJW20/flappy_bird_app.git
