@@ -5,7 +5,7 @@ from neat import BasePlayer
 
 class Player(Bird, BasePlayer):
 
-    def __init__(self, **player_args: dict) -> None:
+    def __init__(self, *player_args: dict) -> None:
         super().__init__()
         self.vision: list[float]
         self.best_score: int = 0
@@ -30,4 +30,4 @@ class Player(Bird, BasePlayer):
 
     def think(self) -> int:
         """Feed the input into the Genome and return the output as a valid move."""
-        return self.genome.propagate(self.vision)[0]
+        return round(self.genome.propagate(self.vision)[0])
