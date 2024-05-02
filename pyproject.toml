@@ -13,6 +13,7 @@ flappy_bird_app = { path = "submodules/flappy_bird_app/", develop = true }
 
 [tool.poetry.scripts]
 main = "flappy_bird_ai.main:main"
+playback = "flappy_bird_ai.playback.playback:playback"
 
 [build-system]
 requires = ["poetry-core"]
