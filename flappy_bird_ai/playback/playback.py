@@ -11,6 +11,7 @@ from flappy_bird_ai.player import Player
 from flappy_bird_ai.settings import settings
 
 from neat import PlaybackPlayers
+from neat.settings import settings_handler
 
 
 def overwrite_pipes(birds: list[Player]) -> None:
@@ -19,7 +20,6 @@ def overwrite_pipes(birds: list[Player]) -> None:
     seed = random.randint(0,100)
     for bird in birds:
         bird.pipes = PlaybackPipes(seed)
-
 
 def initialise_birds(birds: list[Player]) -> None:
     """Get all birds in the starting state."""
@@ -43,7 +43,7 @@ def playback() -> None:
     game_height = 620
     floor_height = 0.04 * game_height
     screen = pygame.display.set_mode((width, game_height + floor_height))
-    pygame.display.set_caption("Flappy Bird: Genetic Algorithm")
+    pygame.display.set_caption("Flappy Bird: NEAT")
     pygame.font.init()
     font_height = int(0.06 * game_height)
     score_font = pygame.font.Font(pygame.font.get_default_font(), font_height)
@@ -68,9 +68,10 @@ def playback() -> None:
     floor_rect = floor_sprite.get_rect(topleft=(0,game_height))
 
     # Get the first birds
-    playback_folder = settings['playback_settings']['save_folder']
-    player_args = settings['player_args']
-    birds = PlaybackPlayers(playback_folder, player_args)
+    handled_settings = settings_handler(settings, silent=True)
+    playback_folder = handled_settings['playback_settings']['save_folder']
+    player_args = handled_settings['player_args']
+    birds = PlaybackPlayers(playback_folder, Player, player_args)
     overwrite_pipes(birds)
     initialise_birds(birds)
 
@@ -99,13 +100,15 @@ def playback() -> None:
                     birds.species_no += 1
                     overwrite_pipes(birds)
                     initialise_birds(birds)
-                elif event.key == pygame.K_LEFT:
+                elif event.key == pygame.K_DOWN:
                     birds.species_no -= 1
                     overwrite_pipes(birds)
                     initialise_birds(birds)
                 
                 elif event.key == pygame.K_SPACE:
                     birds.per_species = not birds.per_species
+                    overwrite_pipes(birds)
+                    initialise_birds(birds)
 
                 elif event.key == pygame.K_j:
                     speed_multiplier = max(1, speed_multiplier // 2)
@@ -115,17 +118,17 @@ def playback() -> None:
 
         visible_birds = [bird for bird in birds if not bird.is_dead]
 
-        # Move the birds
-        for bird in visible_birds:
-            bird.look()
-            move = bird.think()
-            bird.move(move)
-
         # Restart if all dead
         if len(visible_birds) == 0:
             overwrite_pipes(birds)
             initialise_birds(birds)
             visible_birds = birds
+
+        # Move the birds
+        for bird in visible_birds:
+            bird.look()
+            move = bird.think()
+            bird.move(move)
 
         # Fill the screen to wipe last frame
         screen.blit(bg, (0,0))
@@ -138,8 +141,8 @@ def playback() -> None:
             screen.blit(pipe_bottom_sprite, pipe_bottom_rect)
 
         # Draw the birds
+        sprite_id = next(bird_sprite_numbers)
         for bird in visible_birds:
-            sprite_id = next(bird_sprite_numbers)
             bird_sprite_rotated = pygame.transform.rotate(bird_sprites[sprite_id], bird.angle)
             bird_sprite_rect = bird_sprite_rotated.get_rect(center=(bird.x * width, bird.position * game_height))
             screen.blit(bird_sprite_rotated, bird_sprite_rect)
@@ -159,7 +162,7 @@ def playback() -> None:
 
         # Show the species_no
         if birds.per_species:
-            species_no = stats_font.render(f'Species: {birds.species_no}', True, 'white')
+            species_no = stats_font.render(f'Species: {birds.species_no + 1}', True, 'white')
         else:
             species_no = stats_font.render('Species: All', True, 'white')
         species_no_rect = gen.get_rect(topleft=(0.05 * width, 0.1 * game_height))

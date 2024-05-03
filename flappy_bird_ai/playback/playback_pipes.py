@@ -1,4 +1,4 @@
-import random
+from random import Random
 
 from flappy_bird_app.pipes import Pipes, INTERVAL
 from flappy_bird_app.pipe import Pipe
@@ -8,9 +8,9 @@ class PlaybackPipes(Pipes):
     """Extension of Population class which overloads the generation of new pipes
     and sets a seed for generating their height."""
 
-    def __init__(self, seed:int) -> None:
+    def __init__(self, seed: int) -> None:
         super().__init__()
-        self.generator = random
+        self.generator = Random()
         self.generator.seed(seed)
 
     def start_state(self) -> None:
