@@ -26,7 +26,7 @@ genome_settings = {
 population_settings = {
 
     # The number of Players per generation
-    'size': 400,
+    'size': 1000,
     # The percentage of Players to remove from each Species before creating offspring each generation
     'cull_percentage': 0.7,    # Default = 0.5
     # The number of generations to go without improvement before removing all but the 2 best performing Species
@@ -93,7 +93,7 @@ playback_settings = {
     # Folder to save the top performing Genomes of each generation to
     'save_folder': None,  # Default = 'playback'
     # The number of Genomes from each Species to save (set to -1 for all)
-    'number': -1,   # Default = 1
+    'number': 1,   # Default = 1
 
 }
 
@@ -108,7 +108,7 @@ settings = {
     'load_all_settings': False,
     # The number of generations to run the Population until
     # A loaded Population will remember the generation it was saved at and still only run till this number
-    'total_generations': 15,
+    'total_generations': 100,
 
     'player_args': player_args,
     'genome_settings': genome_settings,

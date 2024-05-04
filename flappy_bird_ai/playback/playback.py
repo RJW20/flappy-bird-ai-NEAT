@@ -168,15 +168,15 @@ def playback() -> None:
         species_no_rect = gen.get_rect(topleft=(0.05 * width, 0.1 * game_height))
         screen.blit(species_no, species_no_rect)
 
-        #show the speed
+        # Show the speed
         speed = stats_font.render(f'Speed: {speed_multiplier}x', True, 'white')
         speed_rect = speed.get_rect(topright=(0.95 * width, 0.03 * game_height))
         screen.blit(speed, speed_rect)
 
-        #display the changes
+        # Display the changes
         pygame.display.flip()
         
-        #advance to next frame at chosen speed
+        # Advance to next frame at chosen speed
         clock.tick(base_speed * speed_multiplier)
 
     pygame.quit()
