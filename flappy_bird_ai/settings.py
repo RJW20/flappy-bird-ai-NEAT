@@ -26,7 +26,7 @@ genome_settings = {
 population_settings = {
 
     # The number of Players per generation
-    'size': 1000,
+    'size': 150,
     # The percentage of Players to remove from each Species before creating offspring each generation
     'cull_percentage': 0.7,    # Default = 0.5
     # The number of generations to go without improvement before removing all but the 2 best performing Species
