@@ -22,7 +22,7 @@ Ultimately Flappy Bird is a very simple game and is easily beaten by NEAT. This 
 
 ![bird_passing_1000](https://github.com/RJW20/flappy-bird-ai-NEAT/assets/99192767/13780178-1982-4647-a5e3-a17af21a665e)
 
-The simplicity of the game can be demonstrated when we look at the Genome controlling this bird:
+The simplicity of the game can be easily demonstrated by looking at the Genome controlling this bird:
 
 ![genome](https://github.com/RJW20/flappy-bird-ai-NEAT/assets/99192767/cdd1547b-b033-4996-9279-94fd418f3695)
 
