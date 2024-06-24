@@ -26,7 +26,7 @@ The simplicity of the game can be easily demonstrated by looking at the Genome c
 
 ![genome](https://github.com/RJW20/flappy-bird-ai-NEAT/assets/99192767/cdd1547b-b033-4996-9279-94fd418f3695)
 
-The inputs are in the order listed above (plus a bias node). We see that being further away from the bottom on the top pipe and being closer to (or more obviously) below the top of the bottom pipe both work to increase the decision to jump. Neither of the other two inputs were even required.
+The inputs are in the order listed above (plus a bias node). We see that being further away from the bottom on the top pipe and being closer to (or more obviously below) the top of the bottom pipe both work to increase the decision to jump. Neither of the other two inputs were even required.
 
 ## If you want to run it yourself
 
