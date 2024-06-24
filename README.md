@@ -42,4 +42,4 @@ The inputs are in the order listed above (plus a bias node). We see that being f
 ### Running the Algorithm:
 1. Change any settings you want in `flappy_bird_ai/settings.py`. For more information on what they control see [here](https://github.com/RJW20/NEAT/blob/main/README.md). 
 2. Run the algorithm `poetry run main`.
-3. View the playback of saved history with `poetry run playback`. You can change the generation shown with the left/right arrow keys, the species shown with the up/down arrows (or the spacebar for all species in the current generation) and increase or slow-down the playback speed with the k/j keys respectively.
+3. View the saved playback with `poetry run playback`. You can change the generation shown with the left/right arrow keys, the species shown with the up/down arrows (or the spacebar for all species in the current generation) and increase or slow-down the playback speed with the k/j keys respectively.
