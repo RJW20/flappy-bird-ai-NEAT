@@ -12,7 +12,7 @@ An application of my implementation of NEAT (https://github.com/RJW20/NEAT) to t
 Every frame the bird can either jump or not jump.
 
 ### Neural Network Structure:
-There are 4 input nodes, 1 output node with sigmoid activation (activation > 0.5 => jump, otherwise don't jump) and no hidden layers.
+The algorithm starts off with networks with 4 input nodes, 1 bias node and 1 output node with sigmoid activation (activation > 0.5 => jump, otherwise don't jump). There is also only one random connection.
 
 ### Fitness Function:
 The number of frames the bird has been alive for.
