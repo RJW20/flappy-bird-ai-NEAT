@@ -17,7 +17,7 @@ The algorithm starts off with networks with 4 input nodes, 1 bias node and 1 out
 ### Fitness Function:
 The number of frames the bird has been alive for.
 
-### Results:
+## Results:
 Ultimately Flappy Bird is a very simple game and is easily beaten by NEAT. This bird was created in only the 2nd generation and it would go on forever:
 
 ![bird_passing_1000](https://github.com/RJW20/flappy-bird-ai-NEAT/assets/99192767/13780178-1982-4647-a5e3-a17af21a665e)
